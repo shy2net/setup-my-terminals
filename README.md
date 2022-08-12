@@ -17,7 +17,7 @@ Make sure after using this script to edit your Terminal font to use it, otherwis
 Simply do the following (make sure to follow any prompts):
 
 ```bash
-sh -c "$(curl -fsSL https://raw.github.com/shy2net/setup-my-terminals/master/linux.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/shy2net/setup-my-terminals/master/linux.sh)"
 ```
 
 ## Pre-requisites
