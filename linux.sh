@@ -1,11 +1,14 @@
 #!/bin/sh
 
 # Check if oh-my-zsh is installed
-if [ ! -d "~/.oh-my-zsh"]; then
+if [ ! -d ~/.oh-my-zsh ]; then
     echo "oh-my-zsh not installed, downloading and installing now..."
 
     # Clone ohmyzsh
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+else
+    echo "oh-my-zsh was found, skipping installation!"
 fi
 
 echo "Installing nerd fonts..."
@@ -26,7 +29,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 percol_installed=$(cat ~/.zshrc | grep percol)
 
 # TODO: It seems like percol is still not working, need to check why
-if [ $percol_installed -eq ""]; then
+if [ $percol_installed -eq "" ]; then
     echo "Percol not found, installing..."
     pip install percol || echo "Failed to install percol, check that python and pip are installed!"
 fi
@@ -40,7 +43,4 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 echo "Replacing theme to powerlevel10k..."
 sed -i -r 's/ZSH_THEME\=.+/ZSH_THEME=powerlevel10k\/powerlevel10k/' ~/.zshrc
 
-echo "Reloading oh-my-zsh..."
-
-# Reload oh-my-zsh
-source ~/.zshrc
+echo "Setup was finished! Please run 'source ~/.zshrc' or reload terminal to view the changes"
