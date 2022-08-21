@@ -67,6 +67,7 @@ if which tmux >/dev/null; then
     # Now add the configurations if not exists
     grep -qF "screen-256color" $tmux_conf || echo 'set -g default-terminal "screen-256color"' >>$tmux_conf
     grep -qF "mouse on" $tmux_conf || echo 'setw -g mouse on' >>$tmux_conf
+    grep -qF "mode-keys vi" $tmux_conf || echo 'setw -g mode-keys vi' >>$tmux_conf
 fi
 
 echo "Setup was finished! Please run 'source ~/.zshrc' or reload terminal to view the changes"
